@@ -28,6 +28,12 @@ Este script utiliza el analizador de sentimiento triclase de pysentimiento
 (Pérez, Giudici & Luque 2021), basado en un modelo transformer para español
 que devuelve probabilidades POS / NEU / NEG.
 
-## 3. Cálculo Entropía
+## 4. Cálculo Entropía
 Para cada palabra del corpus, calculamos la entropía de polaridad midiendo cuánta variación muestran sus valores de polaridad a lo largo de todas sus ocurrencias. El script agrupa esos valores en tres categorías (negativa, neutra y positiva), cuenta cómo se distribuyen y obtiene una medida que indica hasta qué punto la polaridad de la palabra es estable o, por el contrario, fluctúa entre distintos usos. El resultado se añade al Excel final en forma de dos columnas: la entropía calculada y su versión normalizada entre 0 y 1.
 Los scripts utilizados para automatizar este proceso están disponibles en: Scripts
+
+
+Si utiliza este repositorio o alguno de los scripts/datos incluidos, por favor cite el proyecto de la siguiente manera:
+Mir-Neira, E. (2025). *Sentiment-Polarity-Entropy* (versión X.X). GitHub.  
+https://github.com/USUARIO/Sentiment-Polarity-Entropy
+
