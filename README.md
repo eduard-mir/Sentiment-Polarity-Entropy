@@ -2,7 +2,7 @@
 ## 1. Overview
 This project investigates sentiment polarity entropy by analysing lexical items across multiple corpora and computing entropy-based sentiment distributions using Orange Data Mining. The aim is to quantify the semantic stability or variability of lexical items in terms of their association with positive, negative and neutral sentiment, based on evidence from real corpus data. The repository includes the full computational workflow, datasets, extracted concordances and visualisations.
 
-# Licenses
+Licenses
 The code (the /scripts directory) is released under the MIT License (see the LICENSE file).
 The linguistic data (the /data directory) is released under the CC BY 4.0 License (see the LICENSE-DATA file).
 
