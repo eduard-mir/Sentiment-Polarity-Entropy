@@ -79,15 +79,21 @@ The datasets were imported into Orange Data Mining, where scatterplots and densi
 
 # 6. Repository Structure
 /data
+
     nombres_entropia_Orange.csv
     verbos_entropia_Orange.csv
     adjetivos_entropia_Orange.csv
     adverbios_entropia_Orange.csv
     additional datasets (optional)
+    
 /orange
+
     Polaridad_Entropy_Representacion.ows
+    
 /figures
+
     visualisations of polarity distributions
+    
 README.md
 LICENSE
 
