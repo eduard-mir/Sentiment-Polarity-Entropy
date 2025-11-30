@@ -1,39 +1,120 @@
 # Sentiment-Polarity-Entropy
-En este proyecto analizamos la variación de la polaridad de sentimiento de una palabra en diferentes contextos para obtener la medición de la estabilidad semántica de un término en función de su comportamiento.
+## 1. Overview
+This project investigates sentiment polarity entropy by analysing lexical items across multiple corpora and computing entropy-based sentiment distributions using Orange Data Mining. The aim is to quantify the semantic stability or variability of lexical items in terms of their association with positive, negative and neutral sentiment, based on evidence from real corpus data. The repository includes the full computational workflow, datasets, extracted concordances and visualisations.
 
-## Licencias
-- El **código** (carpeta /scripts) está bajo licencia **MIT License** (ver archivo LICENSE).
-- Los **datos lingüísticos** (carpeta /data) están bajo **CC BY 4.0** (ver archivo LICENSE-DATA).
+# Licenses
+The code (the /scripts directory) is released under the MIT License (see the LICENSE file).
+The linguistic data (the /data directory) is released under the CC BY 4.0 License (see the LICENSE-DATA file).
 
+## 2. Objectives
+The main objectives of the project are:
+To construct a corpus-based resource for analysing sentiment polarity entropy.
+To extract lexical occurrences and concordances from Sketch Engine.
+To compute probabilistic sentiment distributions for each lexical item.
+To calculate entropy as a measure of semantic dispersion across polarity classes.
+To visualise polarity distributions and entropy groupings using Orange Data Mining.
+To provide a reproducible and extensible framework for further research in sentiment analysis and lexical semantics.
 
----
+## 3. Data Components
+# 3.1 Lexicons
+The project includes the following lexical datasets, each representing one part of speech:
+nombres_entropia_Orange.csv (nouns)
+verbos_entropia_Orange.csv (verbs)
+adjetivos_entropia_Orange.csv (adjectives)
+adverbios_entropia_Orange.csv (adverbs)
 
-## 1. Recopilación del corpus
-El corpus se obtuvo mediante la API de **SketchEngine** utilizando listas de palabras semilla contenidas en: Lexicons
-Los scripts utilizados para automatizar este proceso están disponibles en: Scripts
+Each file contains the list of lexical items evaluated for polarity entropy.
 
-## 2. Segmentación oracional
-El corpus bruto se segmentó en oraciones utilizando spaCy (es_core_news_sm). Para cada fila del corpus, el script:
-divide el texto en oraciones, identifica la oración que contiene la palabra evaluativa (por forma, lema y coincidencias lenientes), y extrae una ventana contextual formada por la oración anterior, la oración objetivo y la oración siguiente.
-El resultado es un Excel con tres niveles de contexto necesarios para los análisis posteriores.
-Los scripts utilizados para automatizar este proceso están disponibles en: Scripts
+# 3.2 Corpora
+Several datasets derived from corpus analysis are included:
+Triclass Polarity Corpus: distributions of positive, negative and neutral probabilities.
+Polarity Entropy Corpus: entropy values derived from the polarity distributions.
+Sketch Engine Occurrences Corpus: concordances extracted from Sketch Engine, used as the empirical basis for probability estimation.
 
-## 3. Análisis de sentimiento
-El cálculo de polaridad (POS / NEU / NEG) se realiza utilizando el modelo de análisis de sentimiento en español incluido en pysentimiento (Pérez, et al., 2021).
+# 3.3 Orange Workflow
+The workflow is provided in:
+Polaridad_Entropy_Representacion.ows
+This file contains the complete Orange pipeline used for:
+importing polarity probability data,
+computing and normalising entropy values,
+generating two-dimensional scatterplots (POS vs. NEG median probabilities),
+applying entropy-based colour coding,
+producing density-enhanced visual representations of the polarity space.
+
+## 4. Visualisation
+The project includes visualisations representing the distribution of polarity probabilities for individual lexical items. A typical representation plots median positive probability on the x-axis and median negative probability on the y-axis, with colour encoding the entropy interval. These visualisations facilitate the identification of lexical patterns such as sentiment asymmetry, polarity ambiguity and semantic clustering.
+
+## 5. Methodology
+# 5.1 Data Extraction
+The corpus was obtained through the Sketch Engine API, using seed word lists contained in the SO-CAL (Semantic Orientation CALculator)Lexicon (Taboada et al., 2011). For each lexical item, occurrences and context windows were retrieved programmatically.
+All scripts used to automate this process are provided in the Scripts directory.
+
+# 5.2 Sentence Segmentation and Context Extraction
+The raw corpus was segmented into sentences using spaCy (es_core_news_sm). For each row in the corpus, the script:
+splits the text into sentences,
+identifies the sentence containing the evaluative word (based on form, lemma or fuzzy matching),
+extracts a contextual window consisting of the previous sentence, the target sentence and the following sentence.
+The resulting dataset is exported as an Excel file containing the three levels of context required for downstream analyses.
+The corresponding automation scripts are available in the Scripts directory.
+
+# 5.3 Sentiment Analysis
+Sentiment polarity (POS / NEU / NEG) is computed using the pysentimiento sentiment analysis model for Spanish (Pérez et al., 2021):
 from pysentimiento import create_analyzer
 analyzer = create_analyzer(task="sentiment", lang="es")
-Los scripts utilizados para automatizar este proceso están disponibles en: Scripts
+This model is a transformer-based trinary sentiment classifier (Pérez, Giudici & Luque 2021) that returns probability scores for positive, neutral and negative sentiment.
+All scripts implementing this step are available in the Scripts directory.
 
-Este script utiliza el analizador de sentimiento triclase de pysentimiento
-(Pérez, Giudici & Luque 2021), basado en un modelo transformer para español
-que devuelve probabilidades POS / NEU / NEG.
+# 5.4 Probability Computation
+For each lexical item, the probabilities
+𝑃(POS), 𝑃(NEG), 𝑃(NEU) 
+were derived from corpus frequencies and normalised across sentiment classes.
 
-## 4. Cálculo Entropía
-Para cada palabra del corpus, calculamos la entropía de polaridad midiendo cuánta variación muestran sus valores de polaridad a lo largo de todas sus ocurrencias. El script agrupa esos valores en tres categorías (negativa, neutra y positiva), cuenta cómo se distribuyen y obtiene una medida que indica hasta qué punto la polaridad de la palabra es estable o, por el contrario, fluctúa entre distintos usos. El resultado se añade al Excel final en forma de dos columnas: la entropía calculada y su versión normalizada entre 0 y 1.
-Los scripts utilizados para automatizar este proceso están disponibles en: Scripts
+# 5.5 Entropy Calculation
+Entropy values were computed using Shannon's entropy formula:
+$$ H = -\sum_i P_i \log_2 P_i $$
+Higher entropy values reflect greater dispersion across sentiment classes, whereas lower values indicate stronger association with a specific polarity.
 
+# 5.6 Visualisation and Analysis
+The datasets were imported into Orange Data Mining, where scatterplots and density fields were generated to represent the probabilistic behaviour of lexical items. Entropy groups were incorporated into the visualisation to highlight semantic tendencies and contrast lexical categories.
 
-Si utiliza este repositorio o alguno de los scripts/datos incluidos, por favor cite el proyecto de la siguiente manera:
-Mir-Neira, E. (2025). *Sentiment-Polarity-Entropy* (versión X.X). GitHub.  
-https://github.com/USUARIO/Sentiment-Polarity-Entropy
+## 6. Repository Structure
+/data
+    nombres_entropia_Orange.csv
+    verbos_entropia_Orange.csv
+    adjetivos_entropia_Orange.csv
+    adverbios_entropia_Orange.csv
+    additional datasets (optional)
+/orange
+    Polaridad_Entropy_Representacion.ows
+/figures
+    visualisations of polarity distributions
+README.md
+LICENSE
 
+## 7. Usage Instructions
+# 7.1 Opening the Workflow in Orange
+Install Orange Data Mining.
+Open Polaridad_Entropy_Representacion.ows.
+Load the CSV datasets included in the repository.
+Run the workflow to reproduce the entropy calculations and visualisations.
+
+# 7.2 Reproducibility and Adaptation
+The workflow and datasets may be adapted to:
+extend lexical lists,
+incorporate additional corpora,
+modify entropy thresholds,
+explore alternative visualisation techniques,
+integrate new sentiment classification resources.
+
+## 8. Citation
+If this project or its datasets are used in academic work, please cite the corresponding Zenodo DOI once published:
+eduard-mir. (2025). eduard-mir/Sentiment-Polarity-Entropy: v1.1 (v1.1). Zenodo. https://doi.org/10.5281/zenodo.17767768
+
+## 9. License
+This project is distributed under the MIT License unless otherwise specified.
+
+# 10. Acknowledgements
+This work makes use of:
+Sketch Engine for concordance extraction,
+Orange Data Mining for analysis and visualisation,
+Various corpora used to derive polarity probabilities and entropy values.
