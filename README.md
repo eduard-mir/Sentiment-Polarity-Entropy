@@ -31,6 +31,10 @@ Triclass Polarity Corpus: distributions of positive, negative and neutral probab
 Polarity Entropy Corpus: entropy values derived from the polarity distributions.
 Sketch Engine Occurrences Corpus: concordances extracted from Sketch Engine, used as the empirical basis for probability estimation.
 
+All supplementary materials associated with this repository, including the full set of concordances extracted from Sketch Engine, the trinary sentiment annotations, and the entropy computations for adjectives, adverbs, nouns and verbs are available in the following Zenodo record: 
+Mir-Neira, E. (2025). Sentiment Polarity Entropy Dataset and Supplementary Materials [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17768537
+This dataset complements the code and resources hosted in this GitHub project and provides complete reproducibility for all analyses.
+
 ## 3.3 Orange Workflow
 The workflow is provided in:
 Polaridad_Entropy_Representacion.ows
