@@ -113,7 +113,7 @@ integrate new sentiment classification resources.
 
 # 8. Citation
 If this project or its datasets are used in academic work, please cite the corresponding Zenodo DOI once published:
-eduard-mir. (2025). eduard-mir/Sentiment-Polarity-Entropy: v1.1 (v1.1). Zenodo. https://doi.org/10.5281/zenodo.17767768
+Mir-Neira, E. (2025). eduard-mir/Sentiment-Polarity-Entropy: v.1.2 (v.1.2). Zenodo. https://doi.org/10.5281/zenodo.17768392
 
 # 9. Acknowledgements
 This work makes use of:
