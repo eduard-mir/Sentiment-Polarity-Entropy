@@ -38,14 +38,7 @@ Mir-Neira, E. (2025). Sentiment Polarity Entropy Dataset and Supplementary Mater
 This dataset complements the code and resources hosted in this GitHub project and provides complete reproducibility for all analyses.
 
 ## 3.3 Orange Workflow
-The workflow is provided in:
-Polaridad_Entropy_Representacion.ows
-This file contains the complete Orange pipeline used for:
-importing polarity probability data,
-computing and normalising entropy values,
-generating two-dimensional scatterplots (POS vs. NEG median probabilities),
-applying entropy-based colour coding,
-producing density-enhanced visual representations of the polarity space.
+The Orange workflow project and all associated files are available in the Zenodo deposit linked to this repository. The workflow file included there (Polaridad_Entropy_Representacion.ows) contains the complete Orange pipeline used for importing polarity-probability data, computing and normalising entropy values, generating two-dimensional scatterplots (POS vs. NEG median probabilities), applying entropy-based colour coding, and producing density-enhanced visual representations of the polarity space.
 
 # 4. Visualisation
 The project includes visualisations representing the distribution of polarity probabilities for individual lexical items. A typical representation plots median positive probability on the x-axis and median negative probability on the y-axis, with colour encoding the entropy interval. These visualisations facilitate the identification of lexical patterns such as sentiment asymmetry, polarity ambiguity and semantic clustering.
