@@ -122,7 +122,8 @@ LICENSE-DATA
 
 ## 7.1 Opening the Workflow in Orange
 - Install Orange Data Mining.
-- Open Polaridad_Entropy_Representacion.ows.
+- Download Polaridad_Entropy_Representacion.ows from the Zenodo record (Section 3.3), as it is not included in this GitHub repository.
+- Open the file in Orange.
 - Load the CSV datasets included in the repository.
 - Run the workflow to reproduce the entropy calculations and visualisations.
 
