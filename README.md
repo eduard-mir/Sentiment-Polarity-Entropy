@@ -22,13 +22,14 @@ The main objectives of the project are:
 # 3. Data Components
 
 ## 3.1 Lexicons
-The project includes the following lexical datasets, each representing one part of speech:
-- nombres_entropia_Orange.csv (nouns)
-- verbos_entropia_Orange.csv (verbs)
-- adjetivos_entropia_Orange.csv (adjectives)
-- adverbios_entropia_Orange.csv (adverbs)
+The project includes the following lexical datasets, each representing one part of speech, contained in the /Lexicons folder:
 
-Each file contains the list of lexical items evaluated for polarity entropy, drawn from the SO-CAL Spanish lexicon (Taboada et al., 2011).
+adj_dict_spa.md (adjectives)
+adv_dict_spa.md (adverbs)
+noun_dict_spa.md (nouns)
+verb_dict_spa.txt (verbs)
+
+Each file contains the seed lexical list evaluated for polarity entropy, drawn from the SO-CAL Spanish lexicon (Taboada et al., 2011). The full probability and entropy data computed for these items are available in the Zenodo record described in Section 3.2.
 
 ## 3.2 Corpora
 Several datasets derived from corpus analysis are included:
@@ -97,21 +98,22 @@ The datasets were imported into Orange Data Mining, where scatterplots and densi
 To assess whether the entropy-based diagnostic reflects a genuine property of the polarity-assignment task rather than an artefact of a single classifier, a stratified sample of 200 adjectives (959 sentences) was manually annotated by three human annotators, and their labels were resolved into a Gold Human Label. This label was then compared against four automatic systems: pysentimiento/robertuito-sentiment-analysis (Pérez et al., 2021, 2022), cardiffnlp/twitter-xlm-roberta-base-sentiment (Barbieri, Espinosa-Anke, and Camacho-Collados, 2022), ChatGPT (GPT-5.5 Thinking; OpenAI, 2026) and Claude (Claude Sonnet 5; Anthropic, 2026), stratified by entropy band. Full methodology, scripts and annotation files are documented in `/human-annotation-and-model-comparison`.
 
 # 6. Repository Structure
-/data
-nombres_entropia_Orange.csv
-verbos_entropia_Orange.csv
-adjetivos_entropia_Orange.csv
-adverbios_entropia_Orange.csv
-/orange
-Polaridad_Entropy_Representacion.ows
-/figures
-visualisations of polarity distributions
+/Lexicons
+    adj_dict_spa.md
+    adv_dict_spa.md
+    noun_dict_spa.md
+    verb_dict_spa.txt
+
+/Scripts
+    (corpus extraction, segmentation and sentiment analysis scripts; see Section 5)
+
 /human-annotation-and-model-comparison
-README.md
-/scripts
-(sample selection, accuracy and agreement computation scripts)
-/annotations
-(human annotation files, Gold Human Label, and per-model outputs)
+    README
+    /scripts
+        (sample selection, accuracy and agreement computation scripts)
+    /excel_files
+        (human annotation files, Gold Human Label, and per-model outputs)
+
 README.md
 LICENSE
 LICENSE-DATA
