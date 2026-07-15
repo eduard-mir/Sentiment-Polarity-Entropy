@@ -1,3 +1,19 @@
+Scope of this license
+
+This CC BY 4.0 license applies to the sentiment and entropy annotations,
+polarity scores, Gold Human Label, model outputs, and lexicon word lists
+produced by this project, wherever they appear (in this repository or in
+the associated Zenodo records).
+
+It does NOT apply to the corpus sentences included for context throughout
+this project's tabular data (in this repository and in both associated
+Zenodo records), which were extracted from the esTenTen corpus (Jakubíček
+et al., 2013) via Sketch Engine. That text remains subject to Sketch
+Engine's own terms of use and is included solely to support the
+reproducibility of this study.
+
+---
+
 Creative Commons Attribution 4.0 International
 
 You are free to:
