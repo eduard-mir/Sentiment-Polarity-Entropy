@@ -6,8 +6,8 @@ This project investigates sentiment polarity entropy by analysing lexical items 
 The repository also includes an independent validation of this entropy-based diagnostic through human annotation and comparison with additional automatic sentiment classifiers, documented in the `/human-annotation-and-model-comparison` folder (see Section 3.4).
 
 ## Licenses
-The code (any `/scripts` directory, including the one inside `/human-annotation-and-model-comparison`) is released under the MIT License (see the LICENSE file).
-The linguistic data (the `/data` directory and the `/human-annotation-and-model-comparison/annotations` directory) is released under the CC BY 4.0 License (see the LICENSE-DATA file).
+The code (the /Scripts directory and the /human-annotation-and-model-comparison/scripts directory) is released under the MIT License (see the LICENSE file).
+The linguistic data (the /Lexicons directory and the /human-annotation-and-model-comparison/excel_files directory) is released under the CC BY 4.0 License (see the LICENSE-DATA file).
 
 # 2. Objectives
 The main objectives of the project are:
