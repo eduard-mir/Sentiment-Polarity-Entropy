@@ -7,7 +7,8 @@ The repository also includes an independent validation of this entropy-based dia
 
 ## Licenses
 The code (the /Scripts directory and the /human-annotation-and-model-comparison/scripts directory) is released under the MIT License (see the LICENSE file).
-The linguistic data (the /Lexicons directory and the /human-annotation-and-model-comparison/excel_files directory) is released under the CC BY 4.0 License (see the LICENSE-DATA file).
+The annotations, scores, and derived data (lexicon word lists, polarity/entropy values, human annotations, Gold Human Label, and model outputs, found in the /Lexicons directory and the /human-annotation-and-model-comparison/excel_files directory) are released under the CC BY 4.0 License (see the LICENSE-DATA file).
+The corpus sentences included for context throughout this project's tabular data (in this repository and in the associated Zenodo records) are extracted from the esTenTen corpus (Jakubíček et al., 2013) via Sketch Engine and are not covered by the CC BY 4.0 license; they remain subject to Sketch Engine's terms of use and are shared here solely to support the reproducibility of this study.
 
 # 2. Objectives
 The main objectives of the project are:
