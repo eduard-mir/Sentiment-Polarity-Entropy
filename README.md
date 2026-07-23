@@ -142,7 +142,7 @@ The workflow and datasets may be adapted to:
 # 8. Citation
 If this project or its datasets are used in academic work, please cite:
 
-Mir-Neira, E. (2025). eduard-mir/Sentiment-Polarity-Entropy (v.1.2) [Software]. Zenodo. https://doi.org/10.5281/zenodo.17768392
+Eduard Mir Neira. (2026). eduard-mir/Sentiment-Polarity-Entropy: Entropy-Based Polarity Analysis with Human Annotation and Cross-Model Comparison (Version v.2) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21373896
 
 Mir-Neira, E. (2025). Sentiment Polarity Entropy Dataset and Supplementary Materials [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17768537
 
