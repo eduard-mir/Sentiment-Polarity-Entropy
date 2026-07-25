@@ -89,6 +89,8 @@ The same 959-sentence sample and Gold Human Label were used to evaluate three ad
 
 **Claude.** `Accuracy_LLM_Claude.py` performs the equivalent computation on `LLM_prueba_anotation_Claude.xlsx`.
 
+The two general-purpose large language models used in the cross-system comparison were **ChatGPT (GPT-5.5 Thinking, OpenAI)** and **Claude (Claude Sonnet 5, Anthropic)**. Both annotations were carried out on **4 July 2026** through the models' respective web interfaces, using an identical protocol: the same CSV file containing the 959 evaluative expressions was provided to each model together with the same prompt, which requested a single output column with the NEG/NEU/POS labels and differed only in the name of that column (`ChatGPT_label` and `Claude_label`, respectively). The prompt and the input CSV are included in this repository. Because both models are proprietary and are updated without stable version pinning, exact replication of these outputs cannot be guaranteed; the labels obtained on that date are archived here so that the reported results remain verifiable.
+
 ### Summary of results (`excel_files/model_evaluation_summary.csv`)
 
 | System | Overall accuracy |
