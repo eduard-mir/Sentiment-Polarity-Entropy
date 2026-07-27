@@ -86,11 +86,34 @@ All scripts implementing this step are available in the Scripts directory.
 For each lexical item, the probabilities P(POS), P(NEG), P(NEU) were derived from corpus frequencies and normalised across sentiment classes.
 
 ## 5.5 Entropy Calculation
-Entropy values were computed using Shannon's entropy formula (Shannon, 1948):
 
-$$ H = -\sum_i P_i \log_2 P_i $$
+Entropy values were computed with Shannon's formula (Shannon, 1948) over the three-class probability distribution (POS / NEU / NEG) returned by the classifier for each sentence:
 
-Higher entropy values reflect greater dispersion across sentiment classes, whereas lower values indicate stronger association with a specific polarity.
+    H = −Σ Pi log2 Pi
+
+All values are normalized by the theoretical maximum for a three-class distribution (log2 3 ≈ 1.585), so that H ∈ [0, 1]. Higher values reflect greater dispersion across sentiment classes; lower values indicate a stronger association with a specific polarity.
+
+### Three measures, three kinds of information
+
+From the per-sentence distributions, three quantities can be derived for each lexical item, and they report different things:
+
+- **Mean entropy** — the arithmetic mean of the per-occurrence entropies. Reports how often the *local context* fails to license a determinate evaluative reading,   i.e. the classifier's uncertainty *within* each sentence.
+- **Aggregate entropy** — the entropy computed over the item's averaged POS/NEU/NEG distribution across all its occurrences.
+- **Jensen–Shannon divergence (JSD)** — the divergence among the item's contextual distributions. Reports how often the assigned polarity actually *reverses* between contexts.
+
+The three are related additively: **aggregate entropy = mean entropy + JSD**.
+Aggregate entropy therefore conflates two distinct sources of dispersion, while mean entropy and JSD isolate them.
+
+### Selecting the measure
+
+The choice was made empirically rather than a priori. Thirty adjectives were manually classified as belonging to Type A (inferred polarity) or Type B (encoded polarity) scales, following the semantic criteria of the paper, **before** any entropy values were computed. The three measures were then compared against this manual classification.
+
+Mean entropy recovers the typology best (29/30 at its optimal threshold, versus 26/30 for aggregate entropy and 23/30 for JSD), and the two groups barely overlap on this measure: Type A items span [0.549, 0.630] and Type B items [0.257, 0.560].
+Mean entropy is also robust to compositional polarity reversals such as sentential negation (*no es bueno*), which inflate JSD and aggregate entropy for encoded-polarity items without reflecting any lexical variability. It is therefore the measure reported throughout the study.
+
+Full results: **`Analysis of 30 adjectives for the selection of the entropy measure used in the study.xlsx`**, with sheets *Table A - Type A*, *Table B - Type B* and *Table C - Discrimination*.
+
+The seed items come from the typology set out in the paper and are not an independent gold standard; the comparison establishes internal consistency between the theoretical typology and the chosen measure, not external validity.
 
 ## 5.6 Visualisation and Analysis
 The datasets were imported into Orange Data Mining, where scatterplots and density fields were generated to represent the probabilistic behaviour of lexical items. Entropy groups were incorporated into the visualisation to highlight semantic tendencies and contrast lexical categories.
