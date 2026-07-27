@@ -89,8 +89,6 @@ For each lexical item, the probabilities P(POS), P(NEG), P(NEU) were derived fro
 
 Entropy values were computed with Shannon's formula (Shannon, 1948) over the three-class probability distribution (POS / NEU / NEG) returned by the classifier for each sentence, using base-2 logarithms and normalized by the theoretical maximum for three classes (log₂3 ≈ 1.585), so that H ∈ [0,1]:
 
-$$H = \frac{-\sum_{i \in \{\mathrm{pos},\, \mathrm{neu},\, \mathrm{neg}\}} p_i \log_2 p_i}{\log_2 3}$$
-
 $$H = \frac{-\sum_{i \in \{pos,\ neu,\ neg\}} p_i \log_2 p_i}{\log_2 3}$$
 
 All values are normalized by the theoretical maximum for a three-class distribution (log2 3 ≈ 1.585), so that H ∈ [0, 1]. Higher values reflect greater dispersion across sentiment classes; lower values indicate a stronger association with a specific polarity.
