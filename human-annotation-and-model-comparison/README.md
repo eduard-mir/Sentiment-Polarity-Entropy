@@ -52,7 +52,7 @@ Of the original 1,000 sentences, 41 were subsequently excluded as non-adjectival
 
 ## 2. Human annotation and Gold Human Label
 
-Each sentence was independently labeled POS/NEU/NEG by three annotators (columns *Human Annotation 1/2/3*).
+The sample was labeled by three annotators (columns *Human Annotation 1/2/3*), all with formal training in linguistics. Annotation was carried out in parallel and independently: each annotator worked separately and had no access to the automatic classifier's output. Annotators were instructed to label the evaluative orientation of the sentential fragment surrounding the target lexical item---in this case, adjectives---using the NEG/NEU/POS scheme. In the CSV file provided to them, the first column indicated the target item under study and the second column contained the expression with the item in context.
 
 **`01_human_raw_agreement.py`** classifies each of the 959 cases by raw agreement:
 
